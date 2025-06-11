@@ -5,7 +5,7 @@ const Milestones = () => {
   const milestones = [
     {
       year: '2024',
-      achievement: 'Received ₹4 Lakhs from Kalpataru CoE, STPI Vizag',
+      achievement: 'Received ₹4 Lakhs from Kalpataru CoE, STPI Vizag (Equity Based) ',
       logo: '/images/kalpataru-logo.png' // Placeholder image path
     },
     {
@@ -13,11 +13,7 @@ const Milestones = () => {
       achievement: 'Secured ₹40,000 from KL University ACIC Incubation Centre',
       logo: '/images/klu-logo.jpg' // Placeholder image path
     },
-    {
-      year: '2025',
-      achievement: 'Secured ₹10 Lakhs from IIT BHILAI INNOVATION AND TECHNOLOGY FOUNDATION (IBITF)',
-      logo: '/images/iit@.2551f259842b850fff65.png' // Placeholder image path
-    }
+    
   ];
 
   return (
