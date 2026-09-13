@@ -48,102 +48,131 @@ const ReachUs = () => {
   };
 
   return (
-    <section className="reach-us" id="contact">
-      <div className="reach-us-container">
-        <h2 className="section-title">Reach Us</h2>
-        <div className="reach-us-content">
+    <section className="section reach-us" id="contact">
+      <div className="container">
+        <div className="section-header">
+          <span className="badge-tag">Get in Touch</span>
+          <h2 className="section-title">Let's Connect & Collaborate</h2>
+          <p className="section-subtitle">
+            Have a project query or looking for smart technology partnerships? We'd love to hear from you.
+          </p>
+        </div>
+
+        <div className="reach-us-grid">
+          {/* Left Column: Contact Info Cards */}
           <div className="reach-us-info">
-            <p>Have a question or want to collaborate? We'd love to hear from you!</p>
-            
-            <div className="contact-info">
+            <div className="contact-card-header">
+              <h3>Contact Information</h3>
+              <p>Reach out directly to our engineering office or send us a message.</p>
+            </div>
+
+            <div className="contact-items">
               <div className="contact-item">
-                <i className="fas fa-map-marker-alt"></i>
-                <div>
-                  <h4>Address</h4>
+                <div className="contact-icon">
+                  <i className="fas fa-map-marker-alt"></i>
+                </div>
+                <div className="contact-details">
+                  <h4>Registered Address</h4>
                   <p>
-                    OLT INNOVATIONS PRIVATE LIMITED,<br />
-                    6/6, Alur Road Prasanti Colony,<br />
-                    Guntakal, Ananthapur- 515801,<br />
-                    Andhra Pradesh
+                    OLT INNOVATIONS PRIVATE LIMITED<br />
+                    6/6, Alur Road, Prasanti Colony,<br />
+                    Guntakal, Ananthapur - 515801,<br />
+                    Andhra Pradesh, India
                   </p>
                 </div>
               </div>
-              
+
               <div className="contact-item">
-                <i className="fas fa-phone"></i>
-                <div>
-                  <h4>Phone</h4>
-                  <p>91-7993547438</p>
+                <div className="contact-icon">
+                  <i className="fas fa-phone-alt"></i>
+                </div>
+                <div className="contact-details">
+                  <h4>Phone Number</h4>
+                  <p>+91 7993547438</p>
                 </div>
               </div>
-              
+
               <div className="contact-item">
-                <i className="fas fa-envelope"></i>
-                <div>
-                  <h4>Email</h4>
+                <div className="contact-icon">
+                  <i className="fas fa-envelope"></i>
+                </div>
+                <div className="contact-details">
+                  <h4>Email Address</h4>
                   <p>oltinnovations@gmail.com</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="reach-us-form">
+          {/* Right Column: Contact Form */}
+          <div className="reach-us-form-wrap">
             {showSuccess ? (
               <div className="success-message">
-                <i className="fas fa-check-circle"></i>
+                <div className="success-icon"><i className="fas fa-check-circle"></i></div>
                 <h3>Thank You!</h3>
-                <p>We have received your message and will get back to you soon.</p>
+                <p>We have received your message and our team will get back to you shortly.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="contact-form">
+                <h3 className="form-heading">Send Us a Message</h3>
+
                 <div className="form-group">
-                  <label htmlFor="name">Name</label>
+                  <label htmlFor="name">Full Name *</label>
                   <input
                     type="text"
                     id="name"
                     name="name"
+                    placeholder="Enter your name"
                     value={formData.name}
                     onChange={handleChange}
                     required
                   />
                 </div>
 
-                <div className="form-group">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                  />
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="email">Email Address *</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="name@example.com"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="phone">Phone Number *</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      placeholder="+91 9876543210"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="phone">Phone</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label htmlFor="message">Message</label>
+                  <label htmlFor="message">Message *</label>
                   <textarea
                     id="message"
                     name="message"
+                    rows="4"
+                    placeholder="Tell us about your project or inquiry..."
                     value={formData.message}
                     onChange={handleChange}
                     required
                   ></textarea>
                 </div>
 
-                <button type="submit" className="submit-btn">Send Message</button>
+                <button type="submit" className="btn btn-primary submit-btn">
+                  Send Message <i className="fas fa-paper-plane"></i>
+                </button>
               </form>
             )}
           </div>

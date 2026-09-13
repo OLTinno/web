@@ -1,40 +1,60 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Header.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
-    <header className="header">
-      <div className="header-container">
-        <div className="logo">
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="header-container container">
+        <a href="#home" className="logo" onClick={closeMenu}>
           <div className="logo-image">
             <img src="/images/logo olt.jpg" alt="OLT Innovations Logo" />
           </div>
-          <h1>OLT Innovations</h1>
-        </div>
+          <span className="logo-text">OLT Innovations</span>
+        </a>
+
+        <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
+          <ul>
+            <li><a href="#home" onClick={closeMenu}>Home</a></li>
+            <li><a href="#about" onClick={closeMenu}>About</a></li>
+            <li><a href="#projects" onClick={closeMenu}>Projects</a></li>
+            <li><a href="#milestones" onClick={closeMenu}>Milestones</a></li>
+            <li><a href="#team" onClick={closeMenu}>Team</a></li>
+            <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
+          </ul>
+          <a href="#contact" className="nav-cta btn btn-primary" onClick={closeMenu}>
+            Get in Touch
+          </a>
+        </nav>
+
         <button 
           className={`mobile-menu-btn ${isMenuOpen ? 'open' : ''}`}
           onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
         >
           <span></span>
           <span></span>
           <span></span>
         </button>
-        <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
-          <ul>
-            <li><a href="#home" onClick={toggleMenu}>Home</a></li>
-            <li><a href="#about" onClick={toggleMenu}>About</a></li>
-            <li><a href="#projects" onClick={toggleMenu}>Projects</a></li>
-            <li><a href="#milestones" onClick={toggleMenu}>Milestones</a></li>
-            <li><a href="#team" onClick={toggleMenu}>Team</a></li>
-            <li><a href="#contact" onClick={toggleMenu}>Contact</a></li>
-          </ul>
-        </nav>
       </div>
     </header>
   );
