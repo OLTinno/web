@@ -1,14 +1,16 @@
 .hero {
-  min-height: 85vh;
+  min-height: 100vh;
+  min-height: 100svh;
   position: relative;
-  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  background: #0B1120;
   overflow: hidden;
-  padding: 8rem 0 6rem;
+  padding: 6rem 0 4rem;
 }
 
+/* Background Video Container */
 .hero-video-container {
   position: absolute;
   top: 0;
@@ -18,135 +20,320 @@
   z-index: 1;
   pointer-events: none;
   overflow: hidden;
-  background: #0F172A;
+  background: #0B1120;
 }
 
+.hero-background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.85) contrast(1.05);
+  opacity: 0;
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-video-container.loaded .hero-background-video {
+  opacity: 1;
+}
+
+.hero-fallback-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #0B1120 0%, #0F172A 100%);
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  z-index: 0;
+}
+
+.hero-fallback-image.visible {
+  opacity: 1;
+}
+
+/* Cinematic Asymmetric Overlay */
 .hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.88) 0%, rgba(15, 23, 42, 0.95) 100%);
+  background: 
+    linear-gradient(90deg, rgba(11, 17, 32, 0.94) 0%, rgba(11, 17, 32, 0.78) 45%, rgba(11, 17, 32, 0.4) 100%),
+    linear-gradient(180deg, rgba(11, 17, 32, 0.7) 0%, rgba(11, 17, 32, 0.2) 50%, rgba(11, 17, 32, 0.95) 100%);
   z-index: 2;
 }
 
+/* Hero Content */
 .hero-container {
   position: relative;
   z-index: 3;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 3rem;
 }
 
 .hero-content {
-  max-width: 880px;
-  text-align: center;
-  color: var(--text-white);
+  max-width: 720px;
+  text-align: left;
+  color: #FFFFFF;
 }
 
-.hero-badge {
-  display: inline-flex;
+/* Eyebrow Label */
+.hero-eyebrow {
+  display: flex;
   align-items: center;
-  padding: 0.4rem 1.1rem;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: var(--radius-sm);
-  color: #E2E8F0;
-  font-family: var(--font-heading);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  margin-bottom: 2rem;
-}
-
-.hero-title {
-  font-size: 3.25rem;
-  font-weight: 800;
-  line-height: 1.18;
+  gap: 0.75rem;
   margin-bottom: 1.5rem;
-  color: var(--text-white);
-  letter-spacing: -0.03em;
 }
 
-.typing-highlight {
-  color: #60A5FA;
-  font-weight: 800;
-  display: inline;
-  position: relative;
+.eyebrow-line {
+  width: 36px;
+  height: 2px;
+  background-color: #38BDF8;
+  border-radius: 2px;
 }
 
-.typing-cursor {
-  display: inline-block;
-  color: #60A5FA;
-  font-weight: 400;
-  margin-left: 3px;
-  animation: cursorBlink 0.9s infinite;
-}
-
-@keyframes cursorBlink {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
-.hero-mission {
-  font-size: 1.2rem;
-  line-height: 1.7;
+.eyebrow-text {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
   color: #94A3B8;
-  max-width: 760px;
-  margin: 0 auto 2.5rem auto;
+}
+
+/* Title & Typography */
+.hero-title {
+  font-size: clamp(2.75rem, 5.5vw, 4.75rem);
+  font-weight: 900;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.highlight-text {
+  background: linear-gradient(135deg, #38BDF8 0%, #818CF8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.hero-description {
+  font-size: clamp(1.05rem, 1.35vw, 1.25rem);
+  line-height: 1.65;
+  color: #CBD5E1;
+  max-width: 580px;
+  margin-bottom: 2.5rem;
   font-weight: 400;
 }
 
+/* Action Buttons */
 .hero-actions {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
-@media (max-width: 992px) {
-  .hero-title {
-    font-size: 2.5rem;
+.btn-cinematic-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 2.25rem;
+  background: #0284C7;
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.25);
+}
+
+.btn-cinematic-primary:hover {
+  background: #0369A1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(2, 132, 199, 0.4);
+  color: #FFFFFF;
+}
+
+.btn-cinematic-primary i {
+  transition: transform 0.3s ease;
+}
+
+.btn-cinematic-primary:hover i {
+  transform: translateX(4px);
+}
+
+.btn-cinematic-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 2rem;
+  background: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.btn-cinematic-secondary:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-2px);
+  color: #FFFFFF;
+}
+
+/* Scroll Down Indicator */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2.25rem;
+  right: 3rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #94A3B8;
+  font-family: var(--font-heading);
+  font-size: 0.725rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  transition: color 0.3s ease;
+}
+
+.hero-scroll-indicator:hover {
+  color: #FFFFFF;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-point {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: #38BDF8;
+  animation: scrollAnim 2s infinite cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@keyframes scrollAnim {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(200%);
+  }
+}
+
+/* Accessibility & Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-background-video {
+    display: none;
+  }
+  .hero-fallback-image {
+    opacity: 1 !important;
+  }
+  .scroll-point {
+    animation: none;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .hero-overlay {
+    background: 
+      linear-gradient(90deg, rgba(11, 17, 32, 0.94) 0%, rgba(11, 17, 32, 0.85) 60%, rgba(11, 17, 32, 0.6) 100%),
+      linear-gradient(180deg, rgba(11, 17, 32, 0.6) 0%, rgba(11, 17, 32, 0.4) 50%, rgba(11, 17, 32, 0.95) 100%);
   }
   
-  .hero-mission {
-    font-size: 1.05rem;
+  .hero-scroll-indicator {
+    right: 2rem;
+    bottom: 2rem;
   }
 }
 
 @media (max-width: 768px) {
   .hero {
-    padding: 7rem 0 4rem;
-    min-height: 80vh;
+    min-height: 100vh;
+    padding: 7rem 0 3.5rem;
+    align-items: flex-end;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(180deg, rgba(11, 17, 32, 0.75) 0%, rgba(11, 17, 32, 0.88) 50%, rgba(11, 17, 32, 0.98) 100%);
+  }
+
+  .hero-container {
+    padding-top: 0;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 1.25rem;
+  }
+
+  .eyebrow-text {
+    font-size: 0.775rem;
   }
 
   .hero-title {
-    font-size: 2rem;
-  }
-  
-  .hero-actions {
-    flex-direction: column;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
+    font-size: 2.5rem;
+    margin-bottom: 1.25rem;
   }
 
-  .hero-actions .btn {
+  .hero-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
     width: 100%;
+    max-width: 340px;
+    gap: 0.875rem;
+  }
+
+  .btn-cinematic-primary,
+  .btn-cinematic-secondary {
+    justify-content: center;
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+  }
+
+  .hero-scroll-indicator {
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: 1.75rem;
+    font-size: 2.15rem;
   }
-
-  .hero-badge {
-    font-size: 0.725rem;
-    padding: 0.35rem 0.85rem;
-  }
-} 
+}
+ 
