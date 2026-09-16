@@ -124,6 +124,24 @@
   display: inline-block;
 }
 
+.typing-cursor {
+  display: inline-block;
+  color: #38BDF8;
+  font-weight: 400;
+  margin-left: 3px;
+  -webkit-text-fill-color: #38BDF8;
+  animation: cursorBlink 0.9s infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 .hero-description {
   font-size: clamp(1.05rem, 1.35vw, 1.25rem);
   line-height: 1.65;

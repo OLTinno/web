@@ -1,11 +1,22 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Hero.css';
 
+const phrases = [
+  "WHAT'S NEXT",
+  "AUTONOMOUS ROBOTICS",
+  "INDUSTRIAL IOT",
+  "CUTTING-EDGE AI",
+  "SMART ENGINEERING"
+];
+
 const Hero = () => {
   const heroRef = useRef(null);
   const videoRef = useRef(null);
   const [videoLoaded, setVideoLoaded] = useState(false);
   const [videoError, setVideoError] = useState(false);
+  const [typedText, setTypedText] = useState('');
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
     const element = heroRef.current;
@@ -28,6 +39,32 @@ const Hero = () => {
       }
     };
   }, []);
+
+  useEffect(() => {
+    const currentPhrase = phrases[phraseIndex];
+    let typingTimer;
+
+    if (isDeleting) {
+      typingTimer = setTimeout(() => {
+        setTypedText(currentPhrase.substring(0, typedText.length - 1));
+      }, 45);
+    } else {
+      typingTimer = setTimeout(() => {
+        setTypedText(currentPhrase.substring(0, typedText.length + 1));
+      }, 75);
+    }
+
+    if (!isDeleting && typedText === currentPhrase) {
+      typingTimer = setTimeout(() => {
+        setIsDeleting(true);
+      }, 2200);
+    } else if (isDeleting && typedText === '') {
+      setIsDeleting(false);
+      setPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+    }
+
+    return () => clearTimeout(typingTimer);
+  }, [typedText, isDeleting, phraseIndex]);
 
   const handleVideoCanPlay = () => {
     setVideoLoaded(true);
@@ -73,7 +110,10 @@ const Hero = () => {
 
           <h1 className="hero-title">
             ENGINEERING<br />
-            <span className="highlight-text">WHAT'S NEXT.</span>
+            <span className="highlight-text">
+              {typedText}
+              <span className="typing-cursor">|</span>
+            </span>
           </h1>
 
           <p className="hero-description">
