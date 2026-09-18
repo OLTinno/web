@@ -3,7 +3,6 @@ import './Hero.css';
 
 const phrases = [
   "WHAT'S NEXT",
-  "AUTONOMOUS ROBOTICS",
   "INDUSTRIAL IOT",
   "CUTTING-EDGE AI",
   "SMART ENGINEERING"
@@ -117,7 +116,7 @@ const Hero = () => {
           </h1>
 
           <p className="hero-description">
-            Intelligent technology, autonomous robotics, and IoT systems built to address real-world industrial challenges.
+            Intelligent technology, advanced robotics, and IoT systems built to address real-world industrial challenges.
           </p>
 
           <div className="hero-actions">

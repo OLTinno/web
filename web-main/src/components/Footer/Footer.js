@@ -41,10 +41,6 @@ const Footer = () => {
                 <span>6/6 Alur Road, Prasanti Colony, Guntakal, AP - 515801</span>
               </li>
               <li>
-                <i className="fas fa-phone-alt"></i>
-                <span>+91 7993547438</span>
-              </li>
-              <li>
                 <i className="fas fa-envelope"></i>
                 <span>oltinnovations@gmail.com</span>
               </li>

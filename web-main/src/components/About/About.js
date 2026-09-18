@@ -18,7 +18,7 @@ const About = () => {
           <div className="about-card-featured">
             <div className="about-card-content">
               <span className="featured-badge">Core Pillars</span>
-              <h3 className="featured-title">AI · IoT · Robotics</h3>
+              <h3 className="featured-title">AI & Industrial IoT</h3>
               <p className="featured-desc">
                 We bridge the gap between embedded hardware and intelligent cloud applications to transform modern infrastructure.
               </p>
@@ -36,13 +36,6 @@ const About = () => {
                   <div>
                     <h4>Industrial IoT</h4>
                     <p>Connected sensors, telematics, and real-time tracking systems.</p>
-                  </div>
-                </div>
-                <div className="pillar-item">
-                  <div className="pillar-icon"><i className="fas fa-robot"></i></div>
-                  <div>
-                    <h4>Autonomous Robotics</h4>
-                    <p>Robotic maintenance and automated safety inspection tools.</p>
                   </div>
                 </div>
               </div>

@@ -6,7 +6,7 @@ const Projects = () => {
     {
       id: 1,
       title: 'Track Inspection Robot',
-      category: 'AI & Autonomous Robotics',
+      category: 'AI & Robotic Automation',
       description: 'AI-powered railway maintenance and theft prevention robot. Advanced sensors and machine learning algorithms for real-time track monitoring and anomaly detection.',
       icon: 'fa-robot',
       tags: ['Computer Vision', 'LiDAR & Sensors', 'Theft Prevention'],

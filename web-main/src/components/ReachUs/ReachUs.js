@@ -84,16 +84,6 @@ const ReachUs = () => {
 
               <div className="contact-item">
                 <div className="contact-icon">
-                  <i className="fas fa-phone-alt"></i>
-                </div>
-                <div className="contact-details">
-                  <h4>Phone Number</h4>
-                  <p>+91 7993547438</p>
-                </div>
-              </div>
-
-              <div className="contact-item">
-                <div className="contact-icon">
                   <i className="fas fa-envelope"></i>
                 </div>
                 <div className="contact-details">
