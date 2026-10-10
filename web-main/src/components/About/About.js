@@ -2,77 +2,109 @@ import React from 'react';
 import './About.css';
 
 const About = () => {
+  const brandPillars = [
+    {
+      icon: 'fa-brain',
+      title: 'Deep Technology',
+      tags: ['Artificial Intelligence', 'Robotics', 'IoT', 'Embedded Systems']
+    },
+    {
+      icon: 'fa-microchip',
+      title: 'Advanced Engineering',
+      tags: ['Hardware Design', 'Electronics', 'Edge Computing', 'Software Architecture']
+    },
+    {
+      icon: 'fa-lightbulb',
+      title: 'Continuous Innovation',
+      tags: ['R&D Research', 'Prototyping', 'Emerging Tech', 'Scalable Platforms']
+    },
+    {
+      icon: 'fa-earth-americas',
+      title: 'Real-World Impact',
+      tags: ['Healthcare & MedTech', 'Critical Infrastructure', 'Mobility', 'Industrial Safety']
+    }
+  ];
+
   return (
     <section id="about" className="section about">
       <div className="container">
+        {/* Section Header */}
         <div className="section-header">
-          <span className="badge-tag">About Company</span>
-          <h2 className="section-title">Pioneering Intelligent Industrial Solutions</h2>
+          <span className="badge-tag">DEEP-TECH COMPANY</span>
+          <h2 className="section-title">Driven by Purpose & Technology</h2>
           <p className="section-subtitle">
-            Tackling complex real-world challenges with scalable, cost-effective, and secure technologies.
+            Pioneering intelligent systems and advanced engineering solutions to build a smarter, safer, and sustainable future.
           </p>
         </div>
 
-        <div className="about-grid">
-          {/* Left Column: Visual Highlight Box */}
-          <div className="about-card-featured">
-            <div className="about-card-content">
-              <span className="featured-badge">Core Pillars</span>
-              <h3 className="featured-title">AI & Industrial IoT</h3>
-              <p className="featured-desc">
-                We bridge the gap between embedded hardware and intelligent cloud applications to transform modern infrastructure.
-              </p>
-              
-              <div className="pillars-list">
-                <div className="pillar-item">
-                  <div className="pillar-icon"><i className="fas fa-brain"></i></div>
-                  <div>
-                    <h4>Artificial Intelligence</h4>
-                    <p>Computer vision and machine learning for predictive monitoring.</p>
-                  </div>
-                </div>
-                <div className="pillar-item">
-                  <div className="pillar-icon"><i className="fas fa-network-wired"></i></div>
-                  <div>
-                    <h4>Industrial IoT</h4>
-                    <p>Connected sensors, telematics, and real-time tracking systems.</p>
-                  </div>
-                </div>
+        {/* Mission & Vision Dual Cards */}
+        <div className="mission-vision-grid">
+          {/* Mission Card */}
+          <div className="mv-card mission-card">
+            <div className="mv-card-header">
+              <div className="mv-icon-box mission-icon-box">
+                <i className="fas fa-bullseye"></i>
               </div>
+              <div>
+                <span className="mv-eyebrow">OUR MISSION</span>
+                <h3 className="mv-title">Transforming Challenges Through Deep Technology</h3>
+              </div>
+            </div>
+            <p className="mv-statement">
+              "To create and develop transformative deep-tech solutions by combining artificial intelligence, robotics, IoT, embedded systems, advanced engineering and emerging technologies to solve complex real-world challenges across industries, including healthcare and MedTech."
+            </p>
+            <div className="mv-card-footer">
+              <span className="mv-tag"><i className="fas fa-check-circle"></i> Impact Driven</span>
+              <span className="mv-tag"><i className="fas fa-check-circle"></i> Cross-Industry</span>
             </div>
           </div>
 
-          {/* Right Column: Company Description & Mission */}
-          <div className="about-text-column">
-            <div className="about-info-block">
-              <h3 className="block-title">Our Mission</h3>
-              <p className="about-paragraph">
-                We're dedicated to revolutionizing industries and enhancing everyday life through cutting-edge AI, IoT, and robotics solutions. Our mission is to deliver secure, efficient, and eco-friendly innovations that tackle real-world challenges while empowering individuals and businesses with scalable, cost-effective technology for a smarter, more connected world.
-              </p>
+          {/* Vision Card */}
+          <div className="mv-card vision-card">
+            <div className="mv-card-header">
+              <div className="mv-icon-box vision-icon-box">
+                <i className="fas fa-eye"></i>
+              </div>
+              <div>
+                <span className="mv-eyebrow">OUR VISION</span>
+                <h3 className="mv-title">Building Technology for a Smarter Future</h3>
+              </div>
             </div>
+            <p className="mv-statement">
+              "To build OLT Innovations into a globally recognized deep-tech innovation company, pioneering technologies that shape a smarter, safer, healthier, more connected and sustainable future."
+            </p>
+            <div className="mv-card-footer">
+              <span className="mv-tag"><i className="fas fa-globe"></i> Global Ambition</span>
+              <span className="mv-tag"><i className="fas fa-leaf"></i> Sustainable Future</span>
+            </div>
+          </div>
+        </div>
 
-            <div className="capabilities-grid">
-              <div className="capability-card">
-                <i className="fas fa-microchip capability-icon"></i>
-                <h4>Embedded Systems</h4>
-                <p>Custom microcontrollers & sensor nodes.</p>
+        {/* Corporate Brand Positioning Grid */}
+        <div className="pillars-wrapper">
+          <div className="pillars-header">
+            <h3 className="pillars-section-title">Core Technology & Domain Spectrum</h3>
+            <p className="pillars-section-subtitle">Combining core engineering disciplines to deliver end-to-end intelligent solutions</p>
+          </div>
+
+          <div className="pillars-grid">
+            {brandPillars.map((pillar, idx) => (
+              <div key={idx} className="pillar-card">
+                <div className="pillar-card-top">
+                  <div className="pillar-icon-box">
+                    <i className={`fas ${pillar.icon}`}></i>
+                  </div>
+                  <h4 className="pillar-card-title">{pillar.title}</h4>
+                </div>
+                <div className="pillar-tags-flex">
+                  {pillar.tags.map((tag, tIdx) => (
+                    <span key={tIdx} className="pillar-chip">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="capability-card">
-                <i className="fas fa-shield-alt capability-icon"></i>
-                <h4>Industrial Security</h4>
-                <p>Theft prevention & anomaly detection.</p>
-              </div>
-              <div className="capability-card">
-                <i className="fas fa-leaf capability-icon"></i>
-                <h4>Eco Innovations</h4>
-                <p>Energy-efficient hardware design.</p>
-              </div>
-              <div className="capability-card">
-                <i className="fas fa-expand-arrows-alt capability-icon"></i>
-                <h4>Scalable Tech</h4>
-                <p>Modular architecture for enterprise growth.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

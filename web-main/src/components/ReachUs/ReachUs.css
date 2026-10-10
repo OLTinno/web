@@ -1,6 +1,6 @@
 .reach-us {
   padding: 6rem 0;
-  background-color: var(--background-white);
+  background-color: var(--emerald-ink);
   position: relative;
 }
 
@@ -13,25 +13,26 @@
 
 /* Left Column: Contact Cards */
 .reach-us-info {
-  background: var(--dark-color);
+  background: var(--card-bg);
   border-radius: var(--radius-xl);
   padding: 2.75rem 2.25rem;
-  color: var(--text-white);
+  color: var(--text-primary);
   box-shadow: var(--shadow-lg);
-  border: 1px solid var(--border-dark);
+  border: 1px solid var(--border-color);
   position: relative;
   overflow: hidden;
+  transition: var(--transition);
 }
 
 .contact-card-header h3 {
   font-size: 1.75rem;
   font-weight: 800;
-  color: var(--text-white);
+  color: var(--light-champagne);
   margin-bottom: 0.5rem;
 }
 
 .contact-card-header p {
-  color: #94A3B8;
+  color: var(--soft-champagne);
   font-size: 1rem;
   margin-bottom: 2rem;
   line-height: 1.5;
@@ -53,43 +54,44 @@
   width: 44px;
   height: 44px;
   min-width: 44px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(243, 229, 200, 0.1);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--text-white);
+  color: var(--champagne);
   font-size: 1.1rem;
 }
 
 .contact-details h4 {
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--text-white);
+  color: var(--light-champagne);
   margin-bottom: 0.25rem;
 }
 
 .contact-details p {
   font-size: 0.95rem;
-  color: #94A3B8;
+  color: var(--soft-champagne);
   line-height: 1.6;
   margin: 0;
 }
 
 /* Right Column: Contact Form */
 .reach-us-form-wrap {
-  background: white;
+  background: var(--card-bg);
   border-radius: var(--radius-xl);
   padding: 2.75rem 2.25rem;
   box-shadow: var(--shadow-md);
   border: 1px solid var(--border-color);
+  transition: var(--transition);
 }
 
 .form-heading {
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color: var(--light-champagne);
   margin-bottom: 1.75rem;
 }
 
@@ -114,7 +116,7 @@
 .form-group label {
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--soft-champagne);
 }
 
 .form-group input,
@@ -122,8 +124,8 @@
   padding: 0.85rem 1rem;
   font-family: var(--font-body);
   font-size: 0.95rem;
-  color: var(--text-primary);
-  background-color: var(--background-light);
+  color: var(--light-champagne);
+  background-color: var(--emerald-surface);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   transition: var(--transition);
@@ -132,9 +134,9 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-  background-color: white;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.15);
+  background-color: var(--emerald-surface);
+  border-color: var(--champagne);
+  box-shadow: 0 0 0 2px var(--champagne-glow);
 }
 
 .form-group textarea {
@@ -146,6 +148,16 @@
   align-self: flex-start;
   margin-top: 0.5rem;
   padding: 0.9rem 2rem;
+  background: var(--champagne);
+  color: var(--emerald-ink);
+  font-weight: 700;
+  border: 1px solid var(--champagne-gold);
+}
+
+.submit-btn:hover {
+  background: var(--champagne-gold);
+  color: var(--emerald-ink);
+  transform: translateY(-2px);
 }
 
 /* Success Message State */
@@ -156,19 +168,19 @@
 
 .success-icon {
   font-size: 3.5rem;
-  color: #10B981;
+  color: var(--champagne);
   margin-bottom: 1rem;
 }
 
 .success-message h3 {
   font-size: 1.75rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color: var(--light-champagne);
   margin-bottom: 0.5rem;
 }
 
 .success-message p {
-  color: var(--text-secondary);
+  color: var(--soft-champagne);
   font-size: 1.05rem;
   line-height: 1.6;
   margin: 0;

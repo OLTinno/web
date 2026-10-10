@@ -15,7 +15,7 @@ const Footer = () => {
               <span className="footer-logo-text">OLT Innovations</span>
             </div>
             <p className="footer-bio">
-              OLT Innovations Private Limited is a technology company dedicated to developing impactful products leveraging AI, IoT, and robotics for real-world industrial applications.
+              OLT Innovations Private Limited is a deep-tech innovation company dedicated to developing transformative solutions by combining AI, robotics, IoT, embedded systems, and advanced engineering for real-world applications across global industries.
             </p>
           </div>
 
@@ -25,9 +25,8 @@ const Footer = () => {
             <ul className="footer-links">
               <li><a href="#home">Home</a></li>
               <li><a href="#about">About Us</a></li>
+              <li><a href="#solution">Our Solution</a></li>
               <li><a href="#projects">Projects</a></li>
-              <li><a href="#milestones">Milestones</a></li>
-              <li><a href="#team">Our Team</a></li>
               <li><a href="#contact">Reach Us</a></li>
             </ul>
           </div>

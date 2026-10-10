@@ -35,10 +35,9 @@ const Header = () => {
         <nav className={`nav-menu ${isMenuOpen ? 'open' : ''}`}>
           <ul>
             <li><a href="#home" onClick={closeMenu}>Home</a></li>
-            <li><a href="#about" onClick={closeMenu}>About</a></li>
+            <li><a href="#about" onClick={closeMenu}>About Us</a></li>
+            <li><a href="#solution" onClick={closeMenu}>Solution</a></li>
             <li><a href="#projects" onClick={closeMenu}>Projects</a></li>
-            <li><a href="#milestones" onClick={closeMenu}>Milestones</a></li>
-            <li><a href="#team" onClick={closeMenu}>Team</a></li>
             <li><a href="#contact" onClick={closeMenu}>Contact</a></li>
           </ul>
           <a href="#contact" className="nav-cta btn btn-primary" onClick={closeMenu}>

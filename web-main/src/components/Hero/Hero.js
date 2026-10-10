@@ -43,16 +43,6 @@ const Hero = () => {
     const currentPhrase = phrases[phraseIndex];
     let typingTimer;
 
-    if (isDeleting) {
-      typingTimer = setTimeout(() => {
-        setTypedText(currentPhrase.substring(0, typedText.length - 1));
-      }, 45);
-    } else {
-      typingTimer = setTimeout(() => {
-        setTypedText(currentPhrase.substring(0, typedText.length + 1));
-      }, 75);
-    }
-
     if (!isDeleting && typedText === currentPhrase) {
       typingTimer = setTimeout(() => {
         setIsDeleting(true);
@@ -60,6 +50,14 @@ const Hero = () => {
     } else if (isDeleting && typedText === '') {
       setIsDeleting(false);
       setPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+    } else if (isDeleting) {
+      typingTimer = setTimeout(() => {
+        setTypedText(currentPhrase.substring(0, typedText.length - 1));
+      }, 45);
+    } else {
+      typingTimer = setTimeout(() => {
+        setTypedText(currentPhrase.substring(0, typedText.length + 1));
+      }, 75);
     }
 
     return () => clearTimeout(typingTimer);
@@ -85,6 +83,7 @@ const Hero = () => {
             muted
             loop
             playsInline
+            preload="metadata"
             onCanPlay={handleVideoCanPlay}
             onError={handleVideoError}
           >
@@ -116,7 +115,7 @@ const Hero = () => {
           </h1>
 
           <p className="hero-description">
-            Intelligent technology, advanced robotics, and IoT systems built to address real-world industrial challenges.
+            Transformative deep-tech solutions combining AI, robotics, IoT, embedded systems, and advanced engineering to solve complex real-world challenges.
           </p>
 
           <div className="hero-actions">
